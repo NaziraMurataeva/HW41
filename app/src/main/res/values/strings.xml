@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">hw  41</string>
+    <string name="myitem">myITEM</string>
+    <string name="my_view_holder">MY_View_Holder</string>
+</resources>
