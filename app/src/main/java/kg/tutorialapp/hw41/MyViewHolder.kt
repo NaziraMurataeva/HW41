@@ -7,8 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    fun bind(item: Item) {
+class MyViewHolder(itemView: View): BaseViewHolder<Any>(itemView) {
+
+  override fun bind(item: Any) {
+      item as Item
+
         itemView.run {
             val iv_icon = findViewById<ImageView>(R.id.iv_icon)
             val tv_name = findViewById<TextView>(R.id.tv_name)
