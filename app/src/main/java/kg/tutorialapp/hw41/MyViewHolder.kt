@@ -3,9 +3,9 @@ package kg.tutorialapp.hw41
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 
 class MyViewHolder(itemView: View): BaseViewHolder<Any>(itemView) {
 
@@ -20,12 +20,22 @@ class MyViewHolder(itemView: View): BaseViewHolder<Any>(itemView) {
         }
     }
     companion object{
-        fun create(parent:ViewGroup): MyViewHolder{
+        fun create(parent : ViewGroup, listener : MyAdapter.OnClickListener): MyViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_my_view_holder,parent,false)
-            return MyViewHolder(view)
+                .inflate(R.layout.item_my_view_holder, parent, false)
+            val holder = MyViewHolder(view)
+
+
+            holder.itemView.setOnClickListener {
+                listener.onItemClick(holder.adapterPosition)
+            }
+
+            holder.itemView.findViewById<Button>(R.id.button).setOnClickListener {
+                listener.onButtonClick(holder.adapterPosition)
+            }
+
+            return holder
+
         }
     }
-
-
 }

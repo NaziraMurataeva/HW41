@@ -8,15 +8,15 @@ import kg.tutorialapp.hw41.Data.items
 import kg.tutorialapp.hw41.MyAdapter.Type.ADVERTISMENT
 import kg.tutorialapp.hw41.MyAdapter.Type.ITEM
 
-class MyAdapter: RecyclerView.Adapter<BaseViewHolder<Any>>() {
+class MyAdapter(private val listener: OnClickListener): RecyclerView.Adapter<BaseViewHolder<Any>>() {
 
     private val items = arrayListOf<Any>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):BaseViewHolder<Any> {
         Log.i(MyAdapter.tag, "onCreateViewHolder")
         return when (viewType){
-          ITEM -> MyViewHolder.create(parent)
-            else -> AddViewHolder.create(parent)
+          ITEM -> MyViewHolder.create(parent, listener)
+            else -> AddViewHolder.create(parent, listener)
 
         }
 
@@ -50,5 +50,10 @@ class MyAdapter: RecyclerView.Adapter<BaseViewHolder<Any>>() {
     }
     companion object{
         const val tag = "ADAPTER"
+    }
+
+    interface OnClickListener{
+        fun onItemClick(position: Int)
+        fun onButtonClick(position: Int)
     }
 }

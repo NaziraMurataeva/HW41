@@ -2,4 +2,6 @@
     <string name="app_name">hw  41</string>
     <string name="myitem">myITEM</string>
     <string name="my_view_holder">MY_View_Holder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
